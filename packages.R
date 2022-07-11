@@ -1,3 +1,5 @@
-library(tidyverse)
-library(lubridate)
-library(broom)
+suppressPackageStartupMessages({
+  library(tidyverse)
+  library(lubridate)
+  library(broom)
+})
