@@ -5,11 +5,14 @@
 
 # Load packages required to define the pipeline:
 library(targets)
-# library(tarchetypes) # Load other packages as needed. # nolint
+library(tarchetypes)
+
+# Load additional packages (can also be done in `tar_option_set()`, see below)
+source("packages.R")
 
 # Set target options:
 tar_option_set(
-  packages = c("tibble"), # packages that your targets need to run
+  # packages = c("tibble"), # packages that your targets need to run
   format = "rds" # default storage format
   # Set other options as needed.
 )
@@ -17,22 +20,17 @@ tar_option_set(
 # tar_make_clustermq() configuration (okay to leave alone):
 options(clustermq.scheduler = "multicore")
 
-# tar_make_future() configuration (okay to leave alone):
-# Install packages {{future}}, {{future.callr}}, and {{future.batchtools}} to allow use_targets() to configure tar_make_future() options.
 
 # Load the R scripts with your custom functions:
 lapply(list.files("R", full.names = TRUE, recursive = TRUE), source)
-# source("other_functions.R") # Source other scripts as needed. # nolint
 
-# Replace the target list below with your own:
-list(
-  tar_target(
-    name = data,
-    command = tibble(x = rnorm(100), y = rnorm(100))
-#   format = "feather" # efficient storage of large data frames # nolint
-  ),
-  tar_target(
-    name = model,
-    command = coefficients(lm(y ~ x, data = data))
-  )
+# Define targets
+tar_plan(
+  tar_file(data_file, "data/raw_data.csv"),
+  data = read_wrangle_data(data_file),
+  m1 = lm(log(height) ~ shoots, data = data),
+  m2 = glm(height ~ shoots, family = gaussian(link = "log"), data = data),
+  summary_df = make_model_summary(m1, m2),
+  tar_render(report, "docs/report.Rmd"),
+  tar_render(README, "README.Rmd")
 )
