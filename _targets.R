@@ -28,9 +28,9 @@ lapply(list.files("R", full.names = TRUE, recursive = TRUE), source)
 tar_plan(
   tar_file(data_file, "data/raw_data.csv"),
   data = read_wrangle_data(data_file),
-  m1 = lm(log(height) ~ shoots, data = data),
-  m2 = glm(height ~ shoots, family = gaussian(link = "log"), data = data),
-  summary_df = make_model_summary(m1, m2),
+  log_lm = lm(log(height) ~ shoots, data = data),
+  log_link_glm = glm(height ~ shoots, family = gaussian(link = "log"), data = data),
+  summary_table = make_model_summary(log_lm, log_link_glm),
   tar_render(report, "docs/report.Rmd"),
   tar_render(README, "README.Rmd")
 )

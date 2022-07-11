@@ -14,8 +14,8 @@ knitr::opts_chunk$set(echo = TRUE)
 I modeled the relationship between height and shoots two ways: 1) by log-transforming the response and 2) with log-normal errors.  Here I compare the two approaches:
 
 ```{r}
-tar_load(summary_df)
-summary_df %>% select(model, AIC, BIC, df = df.residual)
+tar_load(summary_table)
+summary_table %>% select(model, AIC, BIC, df = df.residual)
 ```
 
 As you can see, model 1 (with log-transformed response) has a lower AIC but I don't know if these are comparable because the two models are fit to different data!!!
@@ -25,12 +25,12 @@ Instead, let's look at model diagnostics
 #### Log-transformed:
 
 ```{r}
-plot(tar_read(m1), c(1,2))
+plot(tar_read(log_lm), c(1,2))
 ```
 #### Log-normal
 
 ```{r}
-plot(tar_read(m2), c(1,2))
+plot(tar_read(log_link_glm), c(1,2))
 ```
 
 
