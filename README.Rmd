@@ -16,7 +16,14 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-Minimal demo of the `targets` R package.
+This repo has a minimal demo of using the [`targets` R package](https://books.ropensci.org/targets/) for workflow management.
+
+## "Real life" examples:
+
+- https://github.com/BrunaLab/lagged-ipms (uses HPC to run dynamic branches in parallel)
+- https://github.com/odaniel1/track-cycling (uses `stantargets`)
+- https://github.com/ecohealthalliance/mpx-diagnosis (medium complexity)
+- https://github.com/noamross/reprotemplate (nice template for reproducibility that uses `targets`)
 
 #### Workflow Diagram:
 

@@ -607,25 +607,37 @@ body {
 
 <!-- badges: end -->
 
-<p>Minimal demo of the <code>targets</code> R package.</p>
+<p>This repo has a minimal demo of using the <a href="https://books.ropensci.org/targets/"><code>targets</code> R
+package</a> for workflow management.</p>
+<h2 id="real-life-examples">“Real life” examples:</h2>
+<ul>
+<li><a href="https://github.com/BrunaLab/lagged-ipms">https://github.com/BrunaLab/lagged-ipms</a>
+(uses HPC to run dynamic branches in parallel)</li>
+<li><a href="https://github.com/odaniel1/track-cycling">https://github.com/odaniel1/track-cycling</a>
+(uses <code>stantargets</code>)</li>
+<li><a href="https://github.com/ecohealthalliance/mpx-diagnosis">https://github.com/ecohealthalliance/mpx-diagnosis</a>
+(medium complexity)</li>
+<li><a href="https://github.com/noamross/reprotemplate">https://github.com/noamross/reprotemplate</a>
+(nice template for reproducibility that uses <code>targets</code>)</li>
+</ul>
 <h4 id="workflow-diagram">Workflow Diagram:</h4>
 <pre class="mermaid"><code>graph LR
   subgraph legend
-    x7420bd9270f8d27d([&quot;&quot;Up to date&quot;&quot;]):::uptodate --- x5b3426b4c7fa7dbc([&quot;&quot;Started&quot;&quot;]):::started
+    x0a52b03877696646([&quot;&quot;Outdated&quot;&quot;]):::outdated --- x5b3426b4c7fa7dbc([&quot;&quot;Started&quot;&quot;]):::started
     x5b3426b4c7fa7dbc([&quot;&quot;Started&quot;&quot;]):::started --- xbf4603d6c2c2ad6b([&quot;&quot;Stem&quot;&quot;]):::none
   end
   subgraph Graph
-    x91ab60ce02b784dc([&quot;m1&quot;]):::uptodate --&gt; xce932be5e2ca916b([&quot;summary_df&quot;]):::uptodate
-    xdb805eb4c75210a1([&quot;m2&quot;]):::uptodate --&gt; xce932be5e2ca916b([&quot;summary_df&quot;]):::uptodate
-    x91ab60ce02b784dc([&quot;m1&quot;]):::uptodate --&gt; xe0fba61fbc506510([&quot;report&quot;]):::uptodate
-    xdb805eb4c75210a1([&quot;m2&quot;]):::uptodate --&gt; xe0fba61fbc506510([&quot;report&quot;]):::uptodate
-    xce932be5e2ca916b([&quot;summary_df&quot;]):::uptodate --&gt; xe0fba61fbc506510([&quot;report&quot;]):::uptodate
-    x9902c3bf9eac92fd([&quot;data_file&quot;]):::uptodate --&gt; xb7119b48552d1da3([&quot;data&quot;]):::uptodate
-    xb7119b48552d1da3([&quot;data&quot;]):::uptodate --&gt; x91ab60ce02b784dc([&quot;m1&quot;]):::uptodate
-    xb7119b48552d1da3([&quot;data&quot;]):::uptodate --&gt; xdb805eb4c75210a1([&quot;m2&quot;]):::uptodate
+    x91ab60ce02b784dc([&quot;m1&quot;]):::outdated --&gt; xce932be5e2ca916b([&quot;summary_df&quot;]):::outdated
+    xdb805eb4c75210a1([&quot;m2&quot;]):::outdated --&gt; xce932be5e2ca916b([&quot;summary_df&quot;]):::outdated
+    x91ab60ce02b784dc([&quot;m1&quot;]):::outdated --&gt; xe0fba61fbc506510([&quot;report&quot;]):::outdated
+    xdb805eb4c75210a1([&quot;m2&quot;]):::outdated --&gt; xe0fba61fbc506510([&quot;report&quot;]):::outdated
+    xce932be5e2ca916b([&quot;summary_df&quot;]):::outdated --&gt; xe0fba61fbc506510([&quot;report&quot;]):::outdated
+    x9902c3bf9eac92fd([&quot;data_file&quot;]):::outdated --&gt; xb7119b48552d1da3([&quot;data&quot;]):::outdated
+    xb7119b48552d1da3([&quot;data&quot;]):::outdated --&gt; x91ab60ce02b784dc([&quot;m1&quot;]):::outdated
+    xb7119b48552d1da3([&quot;data&quot;]):::outdated --&gt; xdb805eb4c75210a1([&quot;m2&quot;]):::outdated
     x793b57f9be3e25d5([&quot;README&quot;]):::started --&gt; x793b57f9be3e25d5([&quot;README&quot;]):::started
   end
-  classDef uptodate stroke:#000000,color:#ffffff,fill:#354823;
+  classDef outdated stroke:#000000,color:#000000,fill:#78B7C5;
   classDef started stroke:#000000,color:#000000,fill:#DC863B;
   classDef none stroke:#000000,color:#000000,fill:#94a4ac;
   linkStyle 0 stroke-width:0px;
