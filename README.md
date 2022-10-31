@@ -24,24 +24,19 @@ package](https://books.ropensci.org/targets/) for workflow management.
 ``` mermaid
 graph LR
   subgraph legend
-    x0a52b03877696646([""Outdated""]):::outdated --- x5b3426b4c7fa7dbc([""Started""]):::started
-    x5b3426b4c7fa7dbc([""Started""]):::started --- xbf4603d6c2c2ad6b([""Stem""]):::none
+    x7420bd9270f8d27d([""Up to date""]):::uptodate --- xbf4603d6c2c2ad6b([""Stem""]):::none
   end
   subgraph Graph
-    x5c3cf6a62d99a036(["log_link_glm"]):::outdated --> x1aa14e4024bffa08(["summary_table"]):::outdated
-    x5f659d069b8ddeae(["log_lm"]):::outdated --> x1aa14e4024bffa08(["summary_table"]):::outdated
-    xb7119b48552d1da3(["data"]):::outdated --> x5c3cf6a62d99a036(["log_link_glm"]):::outdated
-    xb7119b48552d1da3(["data"]):::outdated --> x5f659d069b8ddeae(["log_lm"]):::outdated
-    x5c3cf6a62d99a036(["log_link_glm"]):::outdated --> xe0fba61fbc506510(["report"]):::outdated
-    x5f659d069b8ddeae(["log_lm"]):::outdated --> xe0fba61fbc506510(["report"]):::outdated
-    x1aa14e4024bffa08(["summary_table"]):::outdated --> xe0fba61fbc506510(["report"]):::outdated
-    x9902c3bf9eac92fd(["data_file"]):::outdated --> xb7119b48552d1da3(["data"]):::outdated
-    x793b57f9be3e25d5(["README"]):::started --> x793b57f9be3e25d5(["README"]):::started
+    x5c3cf6a62d99a036(["log_link_glm"]):::uptodate --> x1aa14e4024bffa08(["summary_table"]):::uptodate
+    x5f659d069b8ddeae(["log_lm"]):::uptodate --> x1aa14e4024bffa08(["summary_table"]):::uptodate
+    xb7119b48552d1da3(["data"]):::uptodate --> x5c3cf6a62d99a036(["log_link_glm"]):::uptodate
+    xb7119b48552d1da3(["data"]):::uptodate --> x5f659d069b8ddeae(["log_lm"]):::uptodate
+    x5c3cf6a62d99a036(["log_link_glm"]):::uptodate --> xe0fba61fbc506510(["report"]):::uptodate
+    x5f659d069b8ddeae(["log_lm"]):::uptodate --> xe0fba61fbc506510(["report"]):::uptodate
+    x1aa14e4024bffa08(["summary_table"]):::uptodate --> xe0fba61fbc506510(["report"]):::uptodate
+    x9902c3bf9eac92fd(["data_file"]):::uptodate --> xb7119b48552d1da3(["data"]):::uptodate
   end
-  classDef outdated stroke:#000000,color:#000000,fill:#78B7C5;
-  classDef started stroke:#000000,color:#000000,fill:#DC863B;
+  classDef uptodate stroke:#000000,color:#ffffff,fill:#354823;
   classDef none stroke:#000000,color:#000000,fill:#94a4ac;
   linkStyle 0 stroke-width:0px;
-  linkStyle 1 stroke-width:0px;
-  linkStyle 10 stroke-width:0px;
 ```
