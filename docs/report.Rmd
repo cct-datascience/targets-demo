@@ -2,11 +2,12 @@
 title: "Report"
 author: "Eric R. Scott"
 date: '2022-07-11'
-output: html_document
+output: word_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
 ```
 
 ## My analysis
@@ -15,7 +16,7 @@ I modeled the relationship between height and shoots two ways: 1) by log-transfo
 
 ```{r}
 tar_load(summary_table)
-summary_table %>% select(model, AIC, BIC, df = df.residual)
+summary_table %>% arrange(AIC)
 ```
 
 As you can see, model 1 (with log-transformed response) has a lower AIC but I don't know if these are comparable because the two models are fit to different data!!!
@@ -27,10 +28,11 @@ Instead, let's look at model diagnostics
 ```{r}
 plot(tar_read(log_lm), c(1,2))
 ```
+
 #### Log-normal
 
 ```{r}
 plot(tar_read(log_link_glm), c(1,2))
 ```
 
-
+The log transformed response model also has better behaved residuals.

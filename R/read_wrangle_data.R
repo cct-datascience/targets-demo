@@ -10,7 +10,9 @@
 read_wrangle_data <- function(data) {
   
   read_csv(data) %>% 
+    #clean column names
     rename(date = Date, height = `Height (cm)`, shoots = `Shoot Number`) %>% 
+    #parse date with lubridate::mdy()
     mutate(date = mdy(date))
   
 }
