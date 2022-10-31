@@ -8,6 +8,9 @@
 
 This repo has a minimal demo of using the [`targets` R
 package](https://books.ropensci.org/targets/) for workflow management.
+Check out the
+[manual](https://books.ropensci.org/targets/walkthrough.html#inspect-the-pipeline)
+fir instructions on how to run the pipeline.
 
 ## “Real life” examples:
 
