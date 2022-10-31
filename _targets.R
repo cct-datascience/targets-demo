@@ -1,8 +1,3 @@
-# Created by use_targets().
-# Follow the comments below to fill in this target script.
-# Then follow the manual to check and run the pipeline:
-#   https://books.ropensci.org/targets/walkthrough.html#inspect-the-pipeline # nolint
-
 # Load packages required to define the pipeline:
 library(targets)
 library(tarchetypes)
