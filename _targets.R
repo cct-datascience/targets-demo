@@ -7,7 +7,7 @@ source("packages.R")
 
 # Set target options:
 tar_option_set(
-  # packages = c("tibble"), # packages that your targets need to run
+  packages = c("readr", "dplyr", "janitor", "car"), 
   format = "rds" # default storage format
   # Set other options as needed.
 )
@@ -17,18 +17,21 @@ tar_option_set(
 tar_source()
 
 # Define targets
-tar_plan(
+list(
+  # read and wrangle data
+  tar_target(data_file, "data/penguins_raw.csv"),
+  tar_target(data_raw, read_csv(data_file)),
+  tar_target(data, wrangle_data(data_raw)),
   
-  tar_file(data_file, "data/raw_data.csv"),
+  # fit models
+  tar_target(flipper_lm, fit_lm_flipper(data)),
+  tar_target(bill_lm, fit_lm_bill(data)),
   
-  data = read_wrangle_data(data_file),
-  
-  log_lm = fit_log_lm(data),
-  
-  log_link_glm = fit_lnorm_glm(data), 
-  
-  summary_table = AIC(log_lm, log_link_glm),
-  
+  # get results
+  tar_target(flipper_table, Anova(flipper_lm)),
+  tar_target(bill_table, Anova(bill_lm)),
+
+  # render report
   tar_render(report, "docs/report.Rmd")
   
 )
