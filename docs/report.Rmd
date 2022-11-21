@@ -14,7 +14,7 @@ tar_load(data) #load the data
 
 ## My analysis
 
-I tested for a relationship between flipper length and body mass, sex, species, island, and the interaction between sex and species.
+I tested for a relationship between flipper length and body mass, sex, species, and the interaction between sex and species.
 I repeated this analysis for bill length.
 
 ## Results
@@ -43,15 +43,13 @@ tar_read(bill_table) |> knitr::kable(digits = 3)
 #| echo: false
 ggplot(data, aes(x = body_mass_g, y = bill_length_mm, color = species, shape = sex)) + 
   geom_point() +
-  facet_wrap(~island) +
   labs(title = "Bill length")
 ```
 
 ```{r}
 #| echo: false
 ggplot(data, aes(x = body_mass_g, y = flipper_length_mm, color = species, shape = sex)) + 
-  geom_point() +
-  facet_wrap(~island) +
+  geom_point() + 
   labs(title = "Flipper length")
 ```
 
