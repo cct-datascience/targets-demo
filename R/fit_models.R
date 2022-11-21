@@ -1,13 +1,10 @@
 #log transformed height
-fit_log_lm <- function(data) {
-  
-  lm(log(height) ~ 1, data = data)
+fit_lm_flipper <- function(data) {
+  lm(flipper_length_mm ~ body_mass_g + sex + species + island + species:sex, data = data)
   
 }
 
 #log-link glm (lognormal family distribution)
-fit_lnorm_glm <- function(data) {
-  
-  glm(height ~ shoots, family = gaussian(link = "log"), data = data)
-  
+fit_lm_bill <- function(data) {
+  lm(bill_length_mm ~ body_mass_g + sex + species + island + species:sex, data = data)
 }
