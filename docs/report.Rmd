@@ -8,31 +8,50 @@ output: word_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
+library(targets)
+tar_load(data) #load the data
 ```
 
 ## My analysis
 
-I modeled the relationship between height and shoots two ways: 1) by log-transforming the response and 2) with log-normal errors.  Here I compare the two approaches:
+I tested for a relationship between flipper length and body mass, sex, species, island, and the interaction between sex and species.
+I repeated this analysis for bill length.
+
+## Results
+
+Response: flipper length
 
 ```{r}
-tar_load(summary_table)
-summary_table %>% arrange(AIC)
+#| echo: false
+#| output: "asis"
+tar_read(flipper_table) |> knitr::kable(digits = 3)
 ```
 
-As you can see, model 1 (with log-transformed response) has a lower AIC but I don't know if these are comparable because the two models are fit to different data!!!
+Body mass, sex, species, and the interaction between sex and species are significant
 
-Instead, let's look at model diagnostics
 
-#### Log-transformed:
+Response: bill_length
 
 ```{r}
-plot(tar_read(log_lm), c(1,2))
+#| echo: false
+#| output: "asis"
+tar_read(bill_table) |> knitr::kable(digits = 3)
 ```
 
-#### Log-normal
 
 ```{r}
-plot(tar_read(log_link_glm), c(1,2))
+#| echo: false
+ggplot(data, aes(x = body_mass_g, y = bill_length_mm, color = species, shape = sex)) + 
+  geom_point() +
+  facet_wrap(~island) +
+  labs(title = "Bill length")
 ```
 
-The log transformed response model also has better behaved residuals.
+```{r}
+#| echo: false
+ggplot(data, aes(x = body_mass_g, y = flipper_length_mm, color = species, shape = sex)) + 
+  geom_point() +
+  facet_wrap(~island) +
+  labs(title = "Flipper length")
+```
+
