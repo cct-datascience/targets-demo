@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-This repo has a minimal demo of using the [`targets` R package](https://books.ropensci.org/targets/) for workflow management.  Check out the [manual](https://books.ropensci.org/targets/walkthrough.html#inspect-the-pipeline) fir instructions on how to run the pipeline.
+This repo has a minimal demo of using the [`targets` R package](https://books.ropensci.org/targets/) for workflow management using data from the `palmerpenguins` package.  Check out the [manual](https://books.ropensci.org/targets/walkthrough.html#inspect-the-pipeline) for instructions on how to run the pipeline.
 
 ## "Real life" examples:
 
