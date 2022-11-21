@@ -2,16 +2,12 @@
 library(targets)
 library(tarchetypes)
 
-# Load additional packages (can also be done in `tar_option_set()`, see below)
-source("packages.R")
-
 # Set target options:
 tar_option_set(
-  packages = c("readr", "dplyr", "janitor", "car"), 
+  packages = c("tidyverse", "janitor", "car"), 
   format = "rds" # default storage format
   # Set other options as needed.
 )
-
 
 # Load scripts in R/ with your custom functions:
 tar_source()
@@ -33,5 +29,4 @@ list(
 
   # render report
   tar_render(report, "docs/report.Rmd")
-  
 )
