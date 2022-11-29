@@ -22,7 +22,7 @@ get_data <- function(file) {
            body_mass_g,
            sex,
            year) %>%
-    rename(species = species_short) |> 
+    rename(species = species_short) %>%
     mutate(sex = fct_explicit_na(sex))
   
 }
