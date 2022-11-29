@@ -4,7 +4,6 @@
 
 # library(tidyverse)
 # library(janitor)
-
 get_data <- function(file) {
   data_raw <- read_csv(file)
   #source: https://github.com/allisonhorst/palmerpenguins/blob/main/data-raw/penguins.R

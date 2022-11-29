@@ -4,7 +4,7 @@ library(tarchetypes)
 
 # Set target options:
 tar_option_set(
-  packages = c("tidyverse", "janitor", "car"), 
+  packages = c("tidyverse", "janitor", "bbmle"), 
   format = "rds" # default storage format
   # Set other options as needed.
 )
@@ -19,13 +19,9 @@ list(
   tar_target(data, get_data(file)),
   
   # fit models
-  tar_target(flipper_lm, fit_lm_flipper(data)),
-  tar_target(bill_lm, fit_lm_bill(data)),
+  tar_target(lm_full, fit_lm_full(data)),
+  tar_target(lm_noint, fit_lm_noint(data)),
   
   # get results
-  tar_target(flipper_table, Anova(flipper_lm)),
-  tar_target(bill_table, Anova(bill_lm)),
-
-  # render report
-  tar_render(report, "docs/report.Rmd")
+  tar_target(aic_tab, AICtab(lm_full, lm_noint))
 )
