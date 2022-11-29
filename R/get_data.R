@@ -1,12 +1,9 @@
-# Example raw data generated from palmerpenguins package:
-# library(palmerpenguins)
-# write_csv(palmerpenguins::penguins_raw, "data/penguins_raw.csv")
-
 # library(tidyverse)
 # library(janitor)
+# file <- "data/penguins_raw.csv"
+
 get_data <- function(file) {
   data_raw <- read_csv(file)
-  #source: https://github.com/allisonhorst/palmerpenguins/blob/main/data-raw/penguins.R
   data_raw %>%
     clean_names() %>%
     mutate(species_short = word(species, 1)) %>%
