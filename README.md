@@ -15,3 +15,4 @@ Check out the
 [manual](https://books.ropensci.org/targets/walkthrough.html#inspect-the-pipeline)
 for instructions on how to run the pipeline.
 
+The "solution" can be found in the "with-targets" branch.
