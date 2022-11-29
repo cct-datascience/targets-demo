@@ -2,8 +2,11 @@
 # library(palmerpenguins)
 # write_csv(palmerpenguins::penguins_raw, "data/penguins_raw.csv")
 
-wrangle_data <- function(data_raw) {
-  
+# library(tidyverse)
+# library(janitor)
+
+get_data <- function(file) {
+  data_raw <- read_csv(file)
   #source: https://github.com/allisonhorst/palmerpenguins/blob/main/data-raw/penguins.R
   data_raw %>%
     clean_names() %>%
