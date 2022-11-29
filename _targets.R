@@ -15,7 +15,7 @@ tar_source()
 # Define targets
 list(
   # read and wrangle data
-  tar_target(data_file, "data/penguins_raw.csv"),
+  tar_target(data_file, "data/penguins_raw.csv", format = "file"),
   tar_target(data_raw, read_csv(data_file)),
   tar_target(data, wrangle_data(data_raw)),
   
