@@ -1,9 +1,0 @@
-name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
-aic_tab|stem|510fafbd561218c9|861bfcf9e594bd7a|2fcc2f7f59ec33d5|-1500315976||t19325.8425101364s|aa4b28cd19784daa|145|rds|local|vector|||0.003||
-data|stem|63a036985fa84015|4525b922227c51ac|b47f5d1501d9b804|1588979285||t19325.8425098093s|c0870e9378195ff9|2920|rds|local|vector|||0.32||
-file|stem|241dbcb57394b677|2ff7e05672f30403|ef46db3751d8e999|-1301001980|data/penguins_raw.csv|t19325.8101685117s|61a4c77db8b8faa5|53098|file|local|vector|||2.195||
-fit_lm_full|function|b0383750a055b803|||||||||||||||
-fit_lm_noint|function|7cd02800695a1349|||||||||||||||
-get_data|function|40da31b241180b40|||||||||||||||
-lm_full|stem|8e87f04d9b0a9495|896c3b1880e5f800|4cbb24870a57424d|688357416||t19325.8425099411s|fbf837a099d2b076|18590|rds|local|vector|||0.004||
-lm_noint|stem|e6e86c6b105e0c46|a25b3c9919b26cae|cd4c0d89e6c251f2|-218318360||t19325.8425100484s|00dbc6a866b9ab94|15527|rds|local|vector|||0.002||
