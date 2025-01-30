@@ -5,13 +5,14 @@
 
 # Load packages required to define the pipeline:
 library(targets)
+library(crew)
 # library(tarchetypes) # Load other packages as needed. 
 
 # Set target options:
 tar_option_set(
   packages = c("tidyverse", "janitor", "bbmle"), # packages that your targets need to run
   format = "rds", # default storage format
-  controller = crew::crew_controller_local(workers = 2), #run locally on 2 cores
+  controller = crew_controller_local(workers = 2), #run locally on 2 cores
   # Set other options as needed.
 )
 
