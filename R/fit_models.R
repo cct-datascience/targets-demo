@@ -4,6 +4,6 @@ fit_lm_full <- function(data) {
 }
 
 #model without the interaction
-fit_lm_noint <- function(data) {
+fit_lm_main_effects <- function(data) {
   lm(flipper_length_mm ~ body_mass_g + sex, data = data)
 }
