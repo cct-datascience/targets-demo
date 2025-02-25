@@ -3,10 +3,10 @@
 # file <- "data/penguins_raw.csv"
 
 get_data <- function(file) {
-  data_raw <- read_csv(file)
+  data_raw <- read.csv(file)
   data_raw %>%
     clean_names() %>%
-    mutate(species_short = word(species, 1)) %>%
+    mutate(species_short = abbreviate(species)) %>%
     mutate(sex = tolower(sex)) %>%
     mutate(year = as.integer(lubridate::year(date_egg))) %>%
     mutate(across(where(is.character), as.factor)) %>%
@@ -23,6 +23,7 @@ get_data <- function(file) {
            sex,
            year) %>%
     rename(species = species_short) %>%
-    mutate(sex = fct_explicit_na(sex))
+    #make NAs for sex explicitly "Missing"
+    mutate(sex = coalesce(sex, "(Missing)"))
   
 }
