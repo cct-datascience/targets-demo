@@ -5,12 +5,10 @@
 
 # Load packages required to define the pipeline:
 library(targets)
-library(crew)
 
 # Set target options:
 tar_option_set(
   packages = c("dplyr", "janitor", "bbmle"), # packages that your targets need to run
-  controller = crew_controller_local(workers = 2), # run workflow in parallel
   # Set other options as needed.
 )
 
