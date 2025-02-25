@@ -8,7 +8,8 @@ get_data <- function(file) {
     clean_names() %>%
     mutate(species_short = abbreviate(species)) %>%
     mutate(sex = tolower(sex)) %>%
-    mutate(year = as.integer(lubridate::year(date_egg))) %>%
+    mutate(date_egg = as.Date(date_egg)) %>% 
+    mutate(year = as.integer(format(date_egg, "%Y"))) %>%
     mutate(across(where(is.character), as.factor)) %>%
     mutate(flipper_length_mm = as.integer(flipper_length_mm)) %>%
     mutate(body_mass_g = as.integer(body_mass_g)) %>%
